@@ -5,9 +5,63 @@
       i18n:domain="uvc.hersteller"
       metal:use-macro="context/main_template/macros/master">
 <body>
-  <metal:block fill-slot="content-core">
-      <h2 i18n:translate="">Sample View</h2>
-      <p tal:content="view/msg">this gets replaced</p>
-  </metal:block>
+  <metal:main fill-slot="main">
+   <tal:main-macro metal:define-macro="main">
+
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-12">
+          <h1 tal:condition="context/title" tal:content="context/title"/>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Eigenschaft</th>
+                <th scope="col">Daten</th>
+              </tr>
+            </thead>
+            <tbody>
+
+
+              <tr>
+                <th scope="row">Anschrift 1:</th>
+                <td><span tal:condition="context/anschrift1" tal:content="context/anschrift1"></span></td>
+              </tr>
+
+              <tr>
+                <th scope="row">Anschrift 2:</th>
+                <td><span tal:condition="context/anschrift2" tal:content="context/anschrift2"></span></td>
+              </tr>
+
+              <tr>
+                <th scope="row">Anschrift 3:</th>
+                <td><span tal:condition="context/anschrift3" tal:content="context/anschrift3"></span></td>
+              </tr>
+
+              <tr>
+                <th scope="row">Tel:</th>
+                <td><span tal:condition="context/telefon" tal:content="context/telefon"></span></td>
+              </tr>
+
+              <tr>
+                <th scope="row">E-Mail:</th>
+                <td><a tal:condition="context/email" tal:content="context/email" tal:attributes="href context/email" class="badge badge-light"></a></td>
+              </tr>
+
+              <tr>
+                <th scope="row">Website:</th>
+                <td><a tal:condition="context/homepage" tal:content="context/homepage" tal:attributes="href context/homepage" class="badge badge-light"></a></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+     </div>
+
+
+    </tal:main-macro>
+  </metal:main>
 </body>
 </html>
